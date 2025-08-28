@@ -78,7 +78,7 @@ if choose == "Home":
     Gender_encoder = 1 if Gender == "Male" else 0
     AGE = st.number_input("Age:", min_value=1, max_value=120, step=1)
     
-    st.markdown("#### 🧪 Blood tests")
+    """st.markdown("#### 🧪 Blood tests")
     Urea = st.number_input("Urea (mg/dL):", value=0.0)
     Cr = st.number_input("Creatinine (Cr) (mg/dL):", value=0.0)
     HbA1c = st.number_input("HbA1c (%):", value=0.0)
@@ -91,7 +91,33 @@ if choose == "Home":
     VLDL = float(st.text_input("VLDL (mg/dL):", "0.0"))
 
     st.markdown("#### ⚖️ Mass measures")
-    BMI = float(st.text_input("Body mass index (BMI):", "0.0"))
+    BMI = float(st.text_input("Body mass index (BMI):", "0.0"))"""
+    def safe_float_input(label, default="0.0"):
+        val = st.text_input(label, default)
+        try:
+            return float(val)
+        except ValueError:
+            return 0.0   # fallback if user writes text or leaves blank
+
+    st.markdown("#### 🧪 Blood tests")
+    Urea = safe_float_input("Urea (mg/dL):")
+    Cr = safe_float_input("Creatinine (Cr) (mg/dL):")
+    HbA1c = safe_float_input("HbA1c (%):")
+
+    st.markdown("#### 💉 Fats")
+    Chol = safe_float_input("Chol (mg/dL):")
+    TG = safe_float_input("Triglycerides (TG) (mg/dL):")
+    HDL = safe_float_input("Good cholesterol (HDL) (mg/dL):")
+    LDL = safe_float_input("Bad cholesterol (LDL) (mg/dL):")
+    VLDL = safe_float_input("VLDL (mg/dL):")
+
+    st.markdown("#### ⚖️ Mass measures")
+    BMI = safe_float_input("Body mass index (BMI):")
+
+    st.write("### 📊 Values Collected:")
+    st.write(f"Urea: {Urea}, Cr: {Cr}, HbA1c: {HbA1c}")
+    st.write(f"Chol: {Chol}, TG: {TG}, HDL: {HDL}, LDL: {LDL}, VLDL: {VLDL}")
+    st.write(f"BMI: {BMI}")
 
     # Prediction
     if st.button("🔍 prediction"):
