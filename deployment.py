@@ -78,26 +78,21 @@ if choose == "Home":
     Gender_encoder = 1 if Gender == "Male" else 0
     AGE = st.number_input("Age:", min_value=1, max_value=120, step=1)
     
-    """st.markdown("#### 🧪 Blood tests")
-    Urea = st.number_input("Urea (mg/dL):", value=0.0)
-    Cr = st.number_input("Creatinine (Cr) (mg/dL):", value=0.0)
-    HbA1c = st.number_input("HbA1c (%):", value=0.0)
-
-    st.markdown("#### 💉 Fats")
-    Chol = float(st.text_input("Chol (mg/dL):", "0.0"))
-    TG = float(st.text_input("Triglycerides (TG) (mg/dL):", "0.0"))
-    HDL = float(st.text_input("Good cholesterol (HDL) (mg/dL):", "0.0"))
-    LDL = float(st.text_input("Bad cholesterol (LDL) (mg/dL):", "0.0"))
-    VLDL = float(st.text_input("VLDL (mg/dL):", "0.0"))
-
-    st.markdown("#### ⚖️ Mass measures")
-    BMI = float(st.text_input("Body mass index (BMI):", "0.0"))"""
-    def safe_float_input(label, default="0.0"):
+    def safe_float_input(label, default="0.0", fallback=None):
+        """
+        - label: اسم المدخل
+        - default: القيمة اللي تظهر افتراضيًا في الـ UI
+        - fallback: القيمة اللي ترجع لو المستخدم ساب الخانة فاضية
+        """
         val = st.text_input(label, default)
+
+        if val.strip() == "":  # المستخدم ساب الخانة فاضية
+            return fallback if fallback is not None else float(default)
+
         try:
             return float(val)
         except ValueError:
-            return 0.0   # fallback if user writes text or leaves blank
+            return fallback if fallback is not None else float(default)
 
     st.markdown("#### 🧪 Blood tests")
     Urea = safe_float_input("Urea (mg/dL):")
