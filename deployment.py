@@ -78,21 +78,12 @@ if choose == "Home":
     Gender_encoder = 1 if Gender == "Male" else 0
     AGE = st.number_input("Age:", min_value=1, max_value=120, step=1)
     
-    def safe_float_input(label, default="0.0", fallback=None):
-        """
-        - label: اسم المدخل
-        - default: القيمة اللي تظهر افتراضيًا في الـ UI
-        - fallback: القيمة اللي ترجع لو المستخدم ساب الخانة فاضية
-        """
-        val = st.text_input(label, default)
-
-        if val.strip() == "":  # المستخدم ساب الخانة فاضية
-            return fallback if fallback is not None else float(default)
-
-        try:
-            return float(val)
-        except ValueError:
-            return fallback if fallback is not None else float(default)
+    def safe_float_input(label, default="0.0"):
+         val = st.text_input(label, default) 
+         try: 
+            return float(val) 
+         except ValueError: 
+             return 0.0
 
     st.markdown("#### 🧪 Blood tests")
     Urea = safe_float_input("Urea (mg/dL):")
@@ -109,10 +100,6 @@ if choose == "Home":
     st.markdown("#### ⚖️ Mass measures")
     BMI = safe_float_input("Body mass index (BMI):")
 
-    st.write("### 📊 Values Collected:")
-    st.write(f"Urea: {Urea}, Cr: {Cr}, HbA1c: {HbA1c}")
-    st.write(f"Chol: {Chol}, TG: {TG}, HDL: {HDL}, LDL: {LDL}, VLDL: {VLDL}")
-    st.write(f"BMI: {BMI}")
 
     # Prediction
     if st.button("🔍 prediction"):
