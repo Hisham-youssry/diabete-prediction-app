@@ -79,7 +79,7 @@ if choose == "Home":
     AGE = st.number_input("Age:", min_value=1, max_value=120, step=1)
 
     st.markdown("#### 🧪 Blood tests")
-    Urea = st.number_input("Urea (mg/dL):", min_value=1, step=1)
+    Urea = st.number_input("Urea (mg/dL):", min_value=1, step=0.1)
     Cr = st.number_input("Creatinine (Cr) (mg/dL):", min_value=0.0, step=0.01)
     HbA1c = st.number_input("HbA1c (%):", min_value=0.0, step=0.01)
 
