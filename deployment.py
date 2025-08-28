@@ -79,19 +79,20 @@ if choose == "Home":
     AGE = st.number_input("Age:", min_value=1, max_value=120, step=1)
 
     st.markdown("#### 🧪 Blood tests")
-    Urea = st.number_input("Urea (mg/dL):", min_value=0.0, step=0.01, format="%.2f")
-    Cr = st.number_input("Creatinine (Cr) (mg/dL):", min_value=0.0, step=0.01, format="%.2f")
-    HbA1c = st.number_input("HbA1c (%):", min_value=0.0, step=0.01, format="%.2f")
+    Urea = st.number_input("Urea (mg/dL):", min_value=0.0, step=0.01)
+    Cr = st.number_input("Creatinine (Cr) (mg/dL):", min_value=0.0, step=0.01)
+    HbA1c = st.number_input("HbA1c (%):", min_value=0.0, step=0.01)
 
     st.markdown("#### 💉 Fats")
-    Chol = st.number_input("Chol (mg/dL):", min_value=0.0, step=0.01, format="%.2f")
-    TG = st.number_input("Triglycerides (TG) (mg/dL):", min_value=0.0, step=0.01, format="%.2f")
-    HDL = st.number_input("Good cholesterol (HDL) (mg/dL):", min_value=0.0, step=0.01, format="%.2f")
-    LDL = st.number_input("Bad cholesterol (LDL) (mg/dL):", min_value=0.0, step=0.01, format="%.2f")
-    VLDL = st.number_input("VLDL (mg/dL):", min_value=0.0, step=0.01, format="%.2f")
+    Chol = st.number_input("Chol (mg/dL):", min_value=0.0, step=0.01)
+    TG = st.number_input("Triglycerides (TG) (mg/dL):", min_value=0.0, step=0.01)
+    HDL = st.number_input("Good cholesterol (HDL) (mg/dL):", min_value=0.0, step=0.01)
+    LDL = st.number_input("Bad cholesterol (LDL) (mg/dL):", min_value=0.0, step=0.01)
+    VLDL = st.number_input("VLDL (mg/dL):", min_value=0.0, step=0.01)
 
     st.markdown("#### ⚖️ Mass measures")
-    BMI = st.number_input("Body mass index (BMI):", min_value=0.0, step=0.01, format="%.2f")
+    BMI = st.number_input("Body mass index (BMI):", min_value=0.0, step=0.01)
+
     # Prediction
     if st.button("🔍 prediction"):
         sample = predict(Gender_encoder, AGE, Urea, Cr, HbA1c, Chol, TG, HDL, LDL, VLDL, BMI)
