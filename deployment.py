@@ -77,17 +77,6 @@ if choose == "Home":
     Gender = st.radio("Gender:", ("Male", "Female"))
     Gender_encoder = 1 if Gender == "Male" else 0
     AGE = st.number_input("Age:", min_value=1, max_value=120, step=1)
-    Urea = float(st.text_input("Urea (mg/dL):", "0.0"))
-    Cr = float(st.text_input("Creatinine (Cr) (mg/dL):", "0.0"))
-    HbA1c = float(st.text_input("HbA1c (%):", "0.0"))
-
-    Chol = float(st.text_input("Chol (mg/dL):", "0.0"))
-    TG = float(st.text_input("Triglycerides (TG) (mg/dL):", "0.0"))
-    HDL = float(st.text_input("Good cholesterol (HDL) (mg/dL):", "0.0"))
-    LDL = float(st.text_input("Bad cholesterol (LDL) (mg/dL):", "0.0"))
-    VLDL = float(st.text_input("VLDL (mg/dL):", "0.0"))
-
-    BMI = float(st.text_input("Body mass index (BMI):", "0.0"))
     
     st.markdown("#### 🧪 Blood tests")
     Urea = st.number_input("Urea (mg/dL):", value=0.0)
