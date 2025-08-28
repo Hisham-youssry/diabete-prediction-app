@@ -90,9 +90,9 @@ if choose == "Home":
     BMI = float(st.text_input("Body mass index (BMI):", "0.0"))
     
     st.markdown("#### 🧪 Blood tests")
-    Urea = float(st.text_input("Urea (mg/dL):", "0.0"))
-    Cr = float(st.text_input("Creatinine (Cr) (mg/dL):", "0.0"))
-    HbA1c = float(st.text_input("HbA1c (%):", "0.0"))
+    Urea = st.number_input("Urea (mg/dL):", value=0.0)
+    Cr = st.number_input("Creatinine (Cr) (mg/dL):", value=0.0)
+    HbA1c = st.number_input("HbA1c (%):", value=0.0)
 
     st.markdown("#### 💉 Fats")
     Chol = float(st.text_input("Chol (mg/dL):", "0.0"))
