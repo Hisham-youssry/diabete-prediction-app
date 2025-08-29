@@ -108,13 +108,13 @@ if choose == "Home":
         st.subheader("📊 The result:")
         if sample == 0:
             st.success("✅ The result: Healthy")
-            st.balloons()
+            
         elif sample == 1:
             st.warning("⚠️ The result:  Diabetes Exposure (Prediabetes)")
-            st.snow()
+            
         elif sample == 2:
             st.error("🚨 The result:  Diabetic")
-            st.snow()
+            
 
 
 elif choose == "About":
